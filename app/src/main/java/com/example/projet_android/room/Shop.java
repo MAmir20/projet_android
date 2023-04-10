@@ -10,8 +10,8 @@ public class Shop extends User {
     private String idShop;
     private String address;
 
-    public Shop(String name, String phone, String email, String idShop, String address) {
-        super(name, phone, email);
+    public Shop(String name, String phone, String email, String password, String idShop, String address) {
+        super(name, phone, email, password);
         this.idShop = idShop;
         this.address = address;
     }

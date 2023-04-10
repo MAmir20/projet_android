@@ -3,8 +3,11 @@ package com.example.projet_android;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         //To build the database
        CmandiniDatabase db = Room.databaseBuilder(getApplicationContext(), CmandiniDatabase.class,"cmandini").allowMainThreadQueries().build();
 
-        Person p1 = new Person("Hassen Akrout", "24790319", "hassen.akrout@enis.tn",23);
+        Person p1 = new Person("Hassen Akrout", "24790319", "hassen.akrout@enis.tn","123456",23);
         //Insert p1 un table user and table person
         db.userDao().insert(p1);
         db.personDao().insert(p1);
@@ -41,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
             String text = list.getName();
             v1.setText(text);
 
-        }
 
+        Button btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+    }
 }
