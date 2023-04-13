@@ -3,25 +3,17 @@ package com.example.projet_android.room;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 
-@Entity(tableName = "shops")
+@Entity(tableName = "shops", indices = {@Index(value = "id_shop", unique = true)})
 public class Shop extends User {
     @ColumnInfo(name = "id_shop")
     private String idShop;
-    private String address;
 
-    public Shop(String name, String phone, String email, String password, String idShop, String address) {
-        super(name, phone, email, password);
+    public Shop(String name, String phone, String email,String address, String password, String idShop) {
+        super(name, phone, email, address, password);
         this.idShop = idShop;
-        this.address = address;
-    }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getIdShop() {
