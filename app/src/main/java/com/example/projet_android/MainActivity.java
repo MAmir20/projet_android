@@ -69,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
         int nbUserRecords = 200;
         for(int i=0;i<nbUserRecords/2;i++){
             Person p1 = new Person(generateRandomString(20), "24790319", "hassenakrout"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),generateRandomInt(16,80));
-            Shop p2 = new Shop(generateRandomString(20), "24790319", "hassenakroutS"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),""+i);
+            Shop p2 = new Shop(generateRandomString(20), "24790319", "amirmezghani"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),""+i);
             db.userDao().insert(p1);
             db.userDao().insert(p2);
             db.personDao().insert(p1);
             db.shopDao().insert(p2);
         }
 
-        String[] names = {"vehicle", "Real estate","Multimedia", "Home & garden", "Hobbies", "Jobs", "Business", "Others" };
+        String[] names = {"Vehicle", "Real estate","Multimedia", "Home & garden", "Hobbies", "Jobs", "Business", "Others" };
         for(int i=0; i< names.length;i++){
             Category c = new Category(names[i]);
             db.categoryDao().insert(c);
