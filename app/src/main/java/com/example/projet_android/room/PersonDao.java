@@ -26,8 +26,9 @@ public interface PersonDao {
 
     @Query("SELECT * FROM persons WHERE id = :idPerson")
     Person getPersonById(int idPerson);
-
-    @Query("SELECT * FROM persons WHERE email = :idEmail")
-    Person getPersonByEmail(String idEmail);
+    @Query("SELECT * FROM users WHERE email = :email")
+    User getUserByEmail(String email);
+    @Query("SELECT * FROM persons WHERE email = :email")
+    Person getPersonByEmail(String email);
 
 }

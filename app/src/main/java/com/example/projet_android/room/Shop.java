@@ -3,8 +3,9 @@ package com.example.projet_android.room;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 
-@Entity(tableName = "shops")
+@Entity(tableName = "shops", indices = {@Index(value = "id_shop", unique = true)})
 public class Shop extends User {
     @ColumnInfo(name = "id_shop")
     private String idShop;

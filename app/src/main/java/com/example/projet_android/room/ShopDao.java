@@ -29,4 +29,7 @@ public interface ShopDao {
 
     @Query("SELECT * FROM shops WHERE email = :email")
     Shop getShopByEmail(String email);
+
+    @Query("SELECT * FROM users WHERE email = :email")
+    User getUserByEmail(String email);
 }
