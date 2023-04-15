@@ -7,8 +7,8 @@ import androidx.room.Entity;
 public class Person extends User {
     private int age;
 
-    public Person(String name, String phone, String email, String password, int age) {
-        super(name, phone, email, password);
+    public Person(String name, String phone, String email,String address, String password, int age) {
+        super(name, phone, email,address, password);
         this.age = age;
     }
 

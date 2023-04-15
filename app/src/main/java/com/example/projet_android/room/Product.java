@@ -29,8 +29,7 @@ public class Product {
     @ColumnInfo(name = "id_user")
     private int idUser;
 
-    public Product(int id, @Nullable String ref, String name, String description, int qty, double price, String photo, String address, String postDate, boolean visibility, int idCategory, int idUser) {
-        this.id = id;
+    public Product(@Nullable String ref, String name, String description, int qty, double price, String photo, String address, String postDate, boolean visibility, int idCategory, int idUser) {
         this.ref = ref;
         this.name = name;
         this.description = description;

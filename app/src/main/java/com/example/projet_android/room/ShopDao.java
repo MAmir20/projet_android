@@ -26,4 +26,9 @@ public interface ShopDao {
 
     @Query("SELECT * FROM shops WHERE id = :idShop")
     Shop getShopById(int idShop);
+
+    @Query("SELECT * FROM users WHERE email = :mail")
+    User getUserByEmail(String mail);
+        @Query("SELECT * FROM shops WHERE email = :mail")
+    Shop getShopByEmail(String mail);
 }
