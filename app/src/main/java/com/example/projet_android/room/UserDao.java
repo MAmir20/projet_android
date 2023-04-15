@@ -23,7 +23,12 @@ public interface UserDao {
     List<User> getAllUsers();
     @Query("SELECT * FROM users WHERE id = :idUser")
     User getUserById(int idUser);
-
+    @Query("SELECT * FROM users WHERE email = :mail")
+    User getUserByEmail(String mail);
+    @Query("SELECT * FROM persons WHERE email = :mail")
+    Person getPersonByEmail(String mail);
+    @Query("SELECT * FROM shops WHERE email = :mail")
+    Shop getShopByEmail(String mail);
     @Transaction
     @Query("SELECT * FROM users")
     List<Sales> getSales();

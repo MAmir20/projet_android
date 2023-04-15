@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //To delete database
-        //getApplicationContext().deleteDatabase("cmandini");
+        getApplicationContext().deleteDatabase("cmandini");
 
          db = Room.databaseBuilder(getApplicationContext(), CmandiniDatabase.class, "cmandini")
                  .allowMainThreadQueries()
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void seedDatabase(CmandiniDatabase db){
         int nbUserRecords = 200;
+        User u;
         for(int i=0;i<nbUserRecords/2;i++){
             Person p1 = new Person(generateRandomString(20), "24790319", "hassenakrout"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),generateRandomInt(16,80));
             Shop p2 = new Shop(generateRandomString(20), "24790319", "amirmezghani"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),""+i);
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             db.userDao().insert(p2);
             db.personDao().insert(p1);
             db.shopDao().insert(p2);
-        }
+         }
 
         String[] names = {"Vehicle", "Real estate","Multimedia", "Home & garden", "Hobbies", "Jobs", "Business", "Others" };
         for(int i=0; i< names.length;i++){
