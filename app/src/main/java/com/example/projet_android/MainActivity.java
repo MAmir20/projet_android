@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
-
-
     }
     public boolean isDatabaseEmpty(CmandiniDatabase db) {
         UserDao userDao = db.userDao();
