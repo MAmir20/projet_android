@@ -32,4 +32,7 @@ public interface ProductDao {
 
     @Query("SELECT * FROM categories INNER JOIN products ON categories.id = products.id_category WHERE products.id = :idProduct")
     Category getCategoryForProduct(int idProduct);
+
+    @Query("SELECT * FROM products WHERE name LIKE '%' || :product_name || '%'")
+    List<Product> getProductsByName(String product_name);
 }

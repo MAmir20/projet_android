@@ -13,4 +13,7 @@
     <color name="palette2">#AA6F5A</color>
     <color name="palette3">#FFE6D6</color>
     <color name="palette4">#0050B6</color>
+    <color name="light_blue">#6496FB</color>
+    <color name="blue">#3D70D9</color>
+    <color name="red">#ff2929</color>
 </resources>

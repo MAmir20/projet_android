@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //To delete database
         getApplicationContext().deleteDatabase("cmandini");
 
@@ -38,10 +39,19 @@ public class MainActivity extends AppCompatActivity {
          }
 
         Button btn = findViewById(R.id.button);
+        Button test = findViewById(R.id.button2);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomePageActivity.class));
             }
         });
     }
@@ -67,15 +77,15 @@ public class MainActivity extends AppCompatActivity {
         int nbUserRecords = 200;
         User u;
         for(int i=0;i<nbUserRecords/2;i++){
-            Person p1 = new Person(generateRandomString(20), "24790319", "hassenakrout"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),generateRandomInt(16,80));
-            Shop p2 = new Shop(generateRandomString(20), "24790319", "amirmezghani"+ i + "@enis.tn",generateRandomString(30),generateRandomString(10),""+i);
+            Person p1 = new Person(generateRandomString(20), "24790319", "hassenakrout"+ i + "@enis.tn", "https://static.vecteezy.com/system/resources/thumbnails/004/607/791/small/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg",generateRandomString(30),generateRandomString(10),generateRandomInt(16,80));
+            Shop p2 = new Shop(generateRandomString(20), "24790319", "amirmezghani"+ i + "@enis.tn","https://static.vecteezy.com/system/resources/thumbnails/004/607/791/small/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg",generateRandomString(30),generateRandomString(10),""+i);
             db.userDao().insert(p1);
             db.userDao().insert(p2);
             db.personDao().insert(p1);
             db.shopDao().insert(p2);
          }
 
-        String[] names = {"Vehicle", "Real estate","Multimedia", "Home & garden", "Hobbies", "Jobs", "Business", "Others" };
+        String[] names = {"Vehicle", "Real estate","Multimedia", "Home & garden","Clothes" ,"Hobbies", "Jobs", "Business", "Others" };
         for(int i=0; i< names.length;i++){
             Category c = new Category(names[i]);
             db.categoryDao().insert(c);
@@ -87,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             date =  generateRandomInt(1, 31) + "/" + generateRandomInt(1, 12) + "/" + generateRandomInt(2000, 2023);
             Product pro = new Product(generateRandomString(10), generateRandomString(20),
                     generateRandomString(500), generateRandomInt(1, 100),
-                    generateRandomInt(1, 100) * 1.5, generateRandomString(255),
+                    generateRandomInt(1, 100) * 1.5,"https://www.autoaubaine.com/actualite-automobile/images-automobiles/55420.jpg",
                     generateRandomString(20), date,
                     true, generateRandomInt(1, names.length), generateRandomInt(1, nbUserRecords));
             db.productDao().insert(pro);

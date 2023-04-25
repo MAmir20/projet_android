@@ -15,13 +15,23 @@ public class User {
     private String address;
     private String phone;
     private String email;
+    private  String photo;
 
-    public User(String name, String phone, String email, String address, String password) {
+    public User(String name, String phone, String email, String photo, String address, String password) {
         this.name=name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.password = password;
+        this.photo=photo;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public int getId() {

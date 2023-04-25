@@ -10,8 +10,8 @@ public class Shop extends User {
     @ColumnInfo(name = "id_shop")
     private String idShop;
 
-    public Shop(String name, String phone, String email, String address, String password, String idShop) {
-        super(name, phone, email, address, password);
+    public Shop(String name, String phone, String email, String photo, String address, String password, String idShop) {
+        super(name, phone, email, photo, address, password);
         this.idShop = idShop;
     }
 
