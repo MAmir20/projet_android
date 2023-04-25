@@ -95,12 +95,12 @@ public class SignupActivity extends AppCompatActivity {
                         random.nextBytes(salt);*/
                         if(db.userDao().getUserByEmail(email_val) == null) {
                             if (!shop_indiv.isChecked()) {
-                                Person user = new Person(username_val, phone_val, email_val, address_val, password_val_hashed, Integer.parseInt(age_shopID_val));
+                                Person user = new Person(username_val, phone_val, email_val,"", address_val, password_val_hashed, Integer.parseInt(age_shopID_val));
                                 db.userDao().insert(user);
                                 db.personDao().insert(user);
                             }
                             else {
-                                Shop user = new Shop(username_val, phone_val, email_val, address_val, password_val_hashed, age_shopID_val);
+                                Shop user = new Shop(username_val, phone_val, email_val, address_val,"", password_val_hashed, age_shopID_val);
                                 db.userDao().insert(user);
                                 db.shopDao().insert(user);
                             }
