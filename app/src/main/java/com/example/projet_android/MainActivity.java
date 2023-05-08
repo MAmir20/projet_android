@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //To delete database
-        getApplicationContext().deleteDatabase("cmandini");
+        //getApplicationContext().deleteDatabase("cmandini");
 
          db = Room.databaseBuilder(getApplicationContext(), CmandiniDatabase.class, "cmandini")
                  .allowMainThreadQueries()
@@ -38,6 +38,29 @@ public class MainActivity extends AppCompatActivity {
          }
 
         Button btn = findViewById(R.id.button);
+         Button btn2 = findViewById(R.id.button2);
+         Button btn3 = findViewById(R.id.button3);
+         btn2.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent authenticatedIntent = new Intent(getApplicationContext(), UserProductsActivity.class);
+                 authenticatedIntent.putExtra("userId", 167);
+                 authenticatedIntent.putExtra("userEmail", "hassenakrout83@enis.tn");
+                 authenticatedIntent.putExtra("userType", "P");
+                 startActivity(authenticatedIntent);
+             }
+         });
+
+         btn3.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent authenticatedIntent = new Intent(getApplicationContext(), UserProductsActivity.class);
+                 authenticatedIntent.putExtra("userId", 2);
+                 authenticatedIntent.putExtra("userEmail", "amirmezghani0@enis.tn");
+                 authenticatedIntent.putExtra("userType", "S");
+                 startActivity(authenticatedIntent);
+             }
+         });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

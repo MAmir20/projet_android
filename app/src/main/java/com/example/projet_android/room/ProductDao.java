@@ -32,4 +32,8 @@ public interface ProductDao {
 
     @Query("SELECT * FROM categories INNER JOIN products ON categories.id = products.id_category WHERE products.id = :idProduct")
     Category getCategoryForProduct(int idProduct);
+
+    @Query("SELECT * FROM products INNER JOIN commands ON products.id = commands.id_product WHERE commands.status = :status AND commands.id_person = " +
+            "(SELECT id FROM persons WHERE email = :email)")
+    List<Product> getAllCommandsWithStatusForPerson(int status, String email);
 }
