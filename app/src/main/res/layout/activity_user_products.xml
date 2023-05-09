@@ -26,12 +26,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
-                android:text="Orders --" />
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="Orders ----" />
 
             <Switch
                 android:id="@+id/sell_buy"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:paddingHorizontal="30dp"
                 android:layout_weight="1" />
 
@@ -41,7 +43,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="textStart"
-                android:text="-- Offers" />
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:text="---- Offers" />
 
         </LinearLayout>
 

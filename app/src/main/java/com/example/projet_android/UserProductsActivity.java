@@ -37,14 +37,30 @@ public class UserProductsActivity extends AppCompatActivity {
         RadioButton radio1 = findViewById(R.id.radio1);
         RadioButton radio2 = findViewById(R.id.radio2);
 
-        Intent authenticatedIntent = this.getIntent();
-        int userId = authenticatedIntent.getIntExtra("userId", 0);
-        boolean isShop = authenticatedIntent.getStringExtra("userType").equals("S");
-        String email = authenticatedIntent.getStringExtra("userEmail");
+        Intent UserProductsIntent = this.getIntent();
+        int userId = UserProductsIntent.getIntExtra("userId", 0);
+        boolean isShop = UserProductsIntent.getStringExtra("userType").equals("S");
+        String email = UserProductsIntent.getStringExtra("userEmail");
+        String type = UserProductsIntent.getStringExtra("type");
         CmandiniDatabase db = Room.databaseBuilder(getApplicationContext(), CmandiniDatabase.class,"cmandini").allowMainThreadQueries().build();
         if(isShop){
             sell_buy.setChecked(true);
             sell_buy.setEnabled(false);
+        }
+        if(type.equals("R")){
+            sell_buy.setChecked(true);
+            radio1.setChecked(true);
+            radio2.setChecked(false);
+        }
+        else if(type.equals("C")){
+            sell_buy.setChecked(true);
+            radio1.setChecked(false);
+            radio2.setChecked(true);
+        }
+        else if(type.equals("O")){
+            sell_buy.setChecked(false);
+            radio1.setChecked(true);
+            radio2.setChecked(false);
         }
         ArrayList<HashMap<String, String>> dataList = new ArrayList<>();
 

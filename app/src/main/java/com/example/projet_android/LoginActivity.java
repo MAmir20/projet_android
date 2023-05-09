@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(user.getEmail().equals(email_val) && user.getPassword().equals(password_val)){
                             Toast.makeText(getApplicationContext(),"Authenticated successfully !", Toast.LENGTH_LONG).show();
                             // startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            Intent authenticatedIntent = new Intent(getApplicationContext(), UserProductsActivity.class);
+                            Intent authenticatedIntent = new Intent(getApplicationContext(), HomePageActivity.class);
                             User u = db.userDao().getUserByEmail(email_val);
                             authenticatedIntent.putExtra("userId", u.getId());
                             authenticatedIntent.putExtra("userEmail", email_val);
