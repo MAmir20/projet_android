@@ -35,4 +35,8 @@ public interface ProductDao {
 
     @Query("SELECT * FROM products WHERE name LIKE '%' || :product_name || '%'")
     List<Product> getProductsByName(String product_name);
+
+    @Query("SELECT * FROM products INNER JOIN commands ON products.id = commands.id_product WHERE commands.status = :status AND commands.id_person = " +
+            "(SELECT id FROM persons WHERE email = :email)")
+    List<Product> getAllCommandsWithStatusForPerson(int status, String email);
 }

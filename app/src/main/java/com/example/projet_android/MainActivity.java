@@ -27,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         //To delete database
-        getApplicationContext().deleteDatabase("cmandini");
+        //getApplicationContext().deleteDatabase("cmandini");
 
          db = Room.databaseBuilder(getApplicationContext(), CmandiniDatabase.class, "cmandini")
                  .allowMainThreadQueries()
@@ -39,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
          }
 
         Button btn = findViewById(R.id.button);
-        Button test = findViewById(R.id.button2);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), HomePageActivity.class));
-            }
-        });
     }
     public boolean isDatabaseEmpty(CmandiniDatabase db) {
         UserDao userDao = db.userDao();

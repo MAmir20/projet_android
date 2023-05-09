@@ -32,7 +32,13 @@ public interface CommandsDao {
     List<Commands> getAllCommandsWithStatus(int status);
     @Query("SELECT * FROM products INNER JOIN commands ON products.id = commands.id_product WHERE commands.id_person = :idPerson")
     List<Product> getAllProductsForPerson(int idPerson);
+
+    @Query("SELECT * FROM products INNER JOIN commands ON products.id = commands.id_product WHERE commands.id_person = :idPerson AND commands.status = :status")
+    List<Product> getAllCommandsWithStatusForPerson(int status, int idPerson);
     @Query("SELECT * FROM persons INNER JOIN commands ON persons.id = commands.id_person WHERE commands.id_product = :idProduct")
     List<Person> getAllPersonsForProduct(int idProduct);
-
+    @Query("SELECT * FROM products INNER JOIN commands ON products.id = commands.id_product WHERE products.id_user = :idUser AND commands.status = 1")
+    List<Product> getSoldProductsOfUser(int idUser);
+    @Query("SELECT * FROM products LEFT JOIN commands ON products.id = commands.id_product WHERE products.id_user = :idUser AND products.visibility = 1")
+    List<Product> getOnSellProductsOfUser(int idUser);
 }

@@ -72,6 +72,10 @@ public class HomePageActivity extends AppCompatActivity {
            photo.setImageURI(uri);
 
         }
+        Intent UserProductsIntent = new Intent(getApplicationContext(), UserProductsActivity.class);
+        UserProductsIntent.putExtra("userId", userId);
+        UserProductsIntent.putExtra("userEmail", mail);
+        UserProductsIntent.putExtra("userType", isShop?"S":"P");
 
         shop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,12 +92,16 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomePageActivity.this, "requests_clicked", Toast.LENGTH_SHORT).show();
+                UserProductsIntent.putExtra("type", "R");
+                startActivity(UserProductsIntent);
             }
         });
         products.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomePageActivity.this, "cart_clicked", Toast.LENGTH_SHORT).show();
+                UserProductsIntent.putExtra("type", "C");
+                startActivity(UserProductsIntent);
             }
         });
         if(!isShop)
@@ -101,6 +109,8 @@ public class HomePageActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(HomePageActivity.this, "orders_clicked", Toast.LENGTH_SHORT).show();
+                    UserProductsIntent.putExtra("type", "O");
+                    startActivity(UserProductsIntent);
                 }
             });
         account.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +123,7 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(HomePageActivity.this, "logout_clicked", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
             }
         });
     }
